@@ -38,6 +38,7 @@ body {
 
 header {
   text-align: left;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
@@ -75,7 +76,7 @@ input[type=text] {
   border: 1px solid black;
   padding-bottom: 0.3em;
   box-sizing: border-box;
-  border-radius: .1em;
+  border-radius: .3em;
   vertical-align: middle;
   width: 300px;
 }
@@ -84,7 +85,7 @@ input[type=email] {
   border: 1px solid black;
   padding-bottom: 0.3em;
   box-sizing: border-box;
-  border-radius: .1em;
+  border-radius: .3em;
   vertical-align: middle;
   width: 300px;
 }
@@ -93,7 +94,7 @@ input[type=password] {
   border: 1px solid black;
   padding-bottom: 0.3em;
   box-sizing: border-box;
-  border-radius: .1em;
+  border-radius: .3em;
   vertical-align: middle;
   width: 300px;
 }

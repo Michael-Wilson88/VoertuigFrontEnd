@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>User</title>
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
 <div>
@@ -10,9 +12,33 @@
     <header>
       <a href="#"><img src="/img/MinisterieVanDefensieLogo.jpg" width="350" height="200"> </a>
       <h1><span>Gebruiker</span></h1>
+      <button id="fetchUserDataBtn">Fetch User Data</button>
     </header>
   </section>
   <div class="form-container">
+    <div id="response"></div>
+    <script>
+      document.getElementById('fetchUserDataBtn').addEventListener('click', fetchUserData)
+
+      function fetchUserData() {
+        fetch('http://localhost:8070/users')
+          .then(response => response.json())
+          .then(users => {
+            let output = '<h2>List of Users</h2>';
+            output += '<ul>';
+            users.forEach(function (user){
+              output += `
+              <li>
+              ${user.name}
+              </li>
+              `;
+            });
+            output += '</ul>';
+            document.getElementById("response").innerHTML = output;
+          });
+          // .then(json => console.log(json))
+      }
+    </script>
     <form action=""></form>
   </div>
 </div>

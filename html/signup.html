@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign in</title>
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/main.css">
+<!--  <base href="http://localhost:8070/auth/signup" target="_self">-->
+</head>
+<body>
+ <div>
+   <section class="top">
+     <header>
+       <a href="#"><img src="/img/MinisterieVanDefensieLogo.jpg" width="350" height="200"> </a>
+       <h1><span>Nieuwe Gebruiker</span></h1>
+     </header>
+   </section>
+   <div class="form-container">
+     <form id="addPostForm">
+       <div class="form-top">
+         <label for="username">Voer gebruikersnaam in</label>
+         <input type="text" name="username" id="username">
+         <label for="email"> Voer uw E-mail adres in</label>
+         <input type="email" name="email" id="email">
+         <label for="password">Voer wachtwoord in</label>
+         <input type="password" name="password" id="password">
+         <label for="address"> Voer uw adres in</label>
+         <input type="text" name="address" id="address">
+         <label for="zipcode">Voer uw postcode in</label>
+         <input type="text" name="zipcode" id="zipcode">
+         <label for="country">In welk land woont u?</label>
+         <input type="text" name="country" id="country">
+       </div>
+       <div>
+         <input type="button" value="click">
+       </div>
+     </form>
+     <div class="form-bottom">
+     </div>
+
+     <script>
+       document.getElementById('addPostForm').addEventListener('click', addPost)
+
+       function addPost(event) {
+          event.preventDefault()
+
+         let username = document.getElementById('username').value;
+         let email = document.getElementById('email').value;
+         let password = document.getElementById('password').value;
+         let address = document.getElementById('address').value;
+         let zipcode = document.getElementById('zipcode').value;
+         let country = document.getElementById('country').value;
+
+         const myPost = {
+           username: username,
+           email: email,
+           password: password,
+           address: address,
+           zipcode: zipcode,
+           country: country
+         }
+
+         fetch('http://localhost:8070/auth/signup', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json'
+           },
+           body: JSON.stringify(myPost)
+         })
+         .then((res) => res.json())
+           .then((data) => console.log(data))
+       };
+     </script>
+   </div>
+ </div>
+</body>
+</html>
