@@ -23,5 +23,15 @@
       </form>
     </div>
   </div>
+<script>
+  const vehicle_url = 'http://localhost:8070/vehicles/{id}'
+  async function getVehicle() {
+    const response = await fetch(vehicle_url);
+    const data = await response.json();
+    console.log(data);
+  }
+  getVehicle();
+
+</script>
 </body>
 </html>
